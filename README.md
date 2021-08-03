@@ -1,5 +1,5 @@
 # Learn-Git-Branching-Solutions-and-Notes
-My Solutions and Notes for the Learn Git Branching Tutorial
+My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle. 
 
 
 
@@ -40,7 +40,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
      git checkout -b bugFix
       ```
 
-4. Merging in Git
+3. Merging in Git
 
     ```git merge``` creates a special commit that has two unique parents. This allows us to combine the work from two branches into one commit. 
 
@@ -67,34 +67,34 @@ My Solutions and Notes for the Learn Git Branching Tutorial
     git merge bugFix
     ```
 
-      6. Rebase Introduction
+ 4. Rebase Introduction
 
-         Rebasing is a second way of combining work. It takes a set of commits, copies, and then plops them down somewhere else. The commit log / history of a repo will be alot cleaner if only rebasing is allowed. 
+    Rebasing is a second way of combining work. It takes a set of commits, copies, and then plops them down somewhere else. The commit log / history of a repo will be alot cleaner if only rebasing is allowed. 
 
-         Checkout a new branch named bugFix
+    Checkout a new branch named bugFix
 
-         Commit once
+    Commit once
 
-         Go back to main and commit again
+    Go back to main and commit again
 
-         Check out bugFix again and rebase onto main
+    Check out bugFix again and rebase onto main
 
-         Solution:
+    Solution:
 
-            ```console
-            git branch bugFix
-            git checkout bugFix
-            git commit
-            git checkout main
-            git commit
-            git checkout bugFix
-            git rebase main
-            ```
+    ```console
+    git branch bugFix
+    git checkout bugFix
+    git commit
+    git checkout main
+    git commit
+    git checkout bugFix
+    git rebase main
+    ```
 
     
-    #### Ramping Up - The next serving of 100% git awesomes-ness. Hope you're hungry
+#### Ramping Up - The next serving of 100% git awesomes-ness. Hope you're hungry
     
-      1. Detach yo' HEAD
+   1. Detach yo' HEAD
 
          HEAD is the symbolic name for the currently checked out commit. HEAD (almost) always points to the most recent commit which is reflected in the working tree. Normally HEAD points to a branch name, like bugFix. Detaching HEAD just means attaching it to a commit instead of a branch. 
 
@@ -111,7 +111,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          git checkout C4
          ```
 
-      2. Relative Refs (^)
+   2. Relative Refs (^)
 
          ```git log``` is what we will use in the real world to see what our commit tree looks like. Relative refs make it easier to move up or down a relative number of times in the commit tree. ```^``` moves up one level in the commit tree and ```~<num>``` moves upwards the number of times specified.
          
@@ -145,7 +145,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          ```
          
 
-      3. Relative Refs #2 (^)
+   3. Relative Refs #2 (^)
 
          A common use of relative refs is to move branches around You can directly reassign a branch to a commit with the -f option: ```git branch -f main HEAD~3``` will force the main branch to 3 parents behind the HEAD.
          
@@ -159,7 +159,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          git branch -f bugFix HEAD^
          ```
      
-      4. Reversing Changes in Git
+   4. Reversing Changes in Git
     
          There are two primary ways to undo changes in git. ```git reset```and ```git revert```
          
@@ -182,55 +182,56 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          ```
 
          
-    #### Moving Work Around - "Git" comfortable with modifying the source tree :P
+#### Moving Work Around - "Git" comfortable with modifying the source tree :P
 
     
-      1. Cherry-pick Intro
-            ```git cherry-pick <commit1> <commit2> <...>``` says you want to grab a series of commits and copy it below your current location (HEAD)
+   1. Cherry-pick Intro
+         ```git cherry-pick <commit1> <commit2> <...>``` says you want to grab a series of commits and copy it below your current location (HEAD)
 
-            To complete this level, simply copy some work from the three branches shown into main. You can see which commits we want by looking at the goal visualization.
+         To complete this level, simply copy some work from the three branches shown into main. You can see which commits we want by looking at the goal visualization.
 
-           Solution:
+         Solution:
            
-           ```console
-           git cherry-pick C3 C4 C7
-           ```
+         ```console
+         git cherry-pick C3 C4 C7
+         ```
 
 
-      2. Interactive Rebase Intro
+   2. Interactive Rebase Intro
       
-            git rebase -i will let you reorder the sequence of commits
+         git rebase -i will let you reorder the sequence of commits
 
-            Done
+         Done
     
  
-    #### A Mixed Bag - A mixed bag of Git techniques, tricks, and tips
+#### A Mixed Bag - A mixed bag of Git techniques, tricks, and tips
     
-      1. Grabbing Just 1 Commit
+   1. Grabbing Just 1 Commit
     
-          Let's say you are debugging a problem, you go back and add some print debug statements and print statements. Each one of those has their own commit now. Now you solve the problem and you just want your bugFix commit back into the main branch without bringing along your debug commits. That's the use case for this problem. Two potential solutions are suggested: ```git rebase -i``` or ```git cherry-pick```. 
+       Let's say you are debugging a problem, you go back and add some print debug statements and print statements. Each one of those has their own commit now. Now you solve the problem and you just want your bugFix commit back into the main branch without bringing along your debug commits. That's the use case for this problem. Two potential solutions are suggested: ```git rebase -i``` or ```git cherry-pick```. 
 
-          Solution using cherry-pick
+       Solution using cherry-pick
 
           ```console
           git checkout main
           git cherry-pick bugFix
           ```
 
-          Solution using git rebase -i 
+       Solution using git rebase -i 
+         
           ```console
           git rebase -i c1 // delete commits c2 and c3
           git branch -f c4 main'
           ```
  
     
-      2. Juggling Commits
+   2. Juggling Commits
     
-          Another use case that happens commonly is we need to change a commit way back in our commit history. 
+       Another use case that happens commonly is we need to change a commit way back in our commit history. 
           
-          The section utilizes ```git commit --amend```. A good explanation of that command is at the [Pro Git Book](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History). This is useful for making a small change to your most recent commit, like modifying the commit message. 
+       The section utilizes ```git commit --amend```. A good explanation of that command is at the [Pro Git Book](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History). This is useful for making a small change to your most recent commit, like modifying the commit message. 
           
-          Here is the problem: 
+       Here is the problem: 
 
          We will overcome this difficulty by doing the following:
 
@@ -244,30 +245,24 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          
          There are many ways to accomplish this overall goal (I see you eye-ing cherry-pick), and we will see more of them later, but for now let's focus on this technique. Lastly, pay attention to the goal state here -- since we move the commits twice, they both get an apostrophe appended. One more apostrophe is added for the commit we amend, which gives us the final form of the tree
 
-           ```console
+   
+          ```console
           git rebase -i C1 
-
           git checkout newImage 
-
           git commit --amend 
-
           git checkout caption
-
           git rebase -i C1 
-
           git branch -f main C3 
-          
           git checkout main
-          
           ```
           
-      3. Juggling Commits #2
+   3. Juggling Commits #2
 
-            The reordering done in the prior section can cause rebase conflicts, so we can use git cherry-pick to avoid those. 
+         The reordering done in the prior section can cause rebase conflicts, so we can use git cherry-pick to avoid those. 
     
-            git cherry-pick will plop down a commit from anywhere in the tree onto HEAD
+         git cherry-pick will plop down a commit from anywhere in the tree onto HEAD
             
-            The problem: So in this level, let's accomplish the same objective of amending C2 once but avoid using rebase -i. I'll leave it up to you to figure it out! :D
+         The problem: So in this level, let's accomplish the same objective of amending C2 once but avoid using rebase -i. I'll leave it up to you to figure it out! :D
             
             ```console
             git checkout main
@@ -275,12 +270,12 @@ My Solutions and Notes for the Learn Git Branching Tutorial
             git cherry-pick c3
             ```
             
-            My solution used 3 commands, their solution used 4 commands. That's a little odd that it worked. It didn't require me to use the git ammend command which I thought I might have to use. 
+         My solution used 3 commands, their solution used 4 commands. That's a little odd that it worked. It didn't require me to use the git ammend command which I thought I might have to use. 
 
              
  
     
-      4.  Git Tags
+   4.  Git Tags
 
             Branches are useful but they are mutable and often changing. Tags are a way to (almost) permanently mark certain commits as milestones.
          
@@ -292,7 +287,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
             git checkout v1
             ```
 
-      5.  Git Describe
+   5.  Git Describe
     
             ```git describe``` will tell you where you are relative to the closest anchor.
             
@@ -310,8 +305,8 @@ My Solutions and Notes for the Learn Git Branching Tutorial
      
     
     
-    #### Advanced Topics - For the Truly Brave!
-    1. Rebasing over 9000 times
+#### Advanced Topics - For the Truly Brave!
+   1. Rebasing over 9000 times
 
          Rebasing 
          Branches
@@ -333,7 +328,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          ```
       
       
-    3. Multiple parents
+   3. Multiple parents
 
          The ```^``` operator specifies which parent reference to follow from a merge commit.
          
@@ -354,7 +349,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          ````
          
          
-    5. Branch spaghetti
+   4. Branch spaghetti
 
          WOAHHHhhh Nelly! We have quite the goal to reach in this level.
 
@@ -372,9 +367,9 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          
          Then use git cherry-pick to move commits under the right branches. Then git rebase-i to reorder the branches. Then git branch -f to get the branch labels to the right commits. 
 
-      #### Push & Pull -- Git Remotes!
+   #### Push & Pull -- Git Remotes!
       
-      1. Clone Intro 
+   1. Clone Intro 
 
          Git Remotes are a great backup tool and they allow us to easily collaborate with others on projects. It's important to understand the underlying structure of how remotes work. 
 
@@ -384,7 +379,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          git clone
          ``` 
 
-      2. Remote Branches
+   2. Remote Branches
 
          Git automatically sets the name of your remote to be origin. In this tutorial we will use o as a shorthand for origin.
          
@@ -398,7 +393,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          git commit
          ```
 
-      3. Git Fetchin'
+   3. Git Fetchin'
 
          In this lesson we will learn how to fetch data from a remote repository -- the command for this is conveniently named git fetch.
 
@@ -413,7 +408,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          ```
 
         
-      4. Git Pullin'
+   4. Git Pullin'
 
          The workflow of fetching commits from a remote and then merging them is so common there is a single command that does both: ```git pull```
 
@@ -423,7 +418,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          git pull
          ```
 
-      5. Faking Teamwork
+   5. Faking Teamwork
 
          Go ahead and make a remote (with git clone), fake some changes on that remote, commit yourself, and then pull down those changes. It's like a few lessons in one!
 
@@ -435,7 +430,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          git commit
          git pull
          ```
-      6. Git Pushin'
+   6. Git Pushin'
 
          git push is the opposite of git pull. It allows you to get your code onto the remote to share with the rest of the team. The default behavior of git push with no arguments depends on the settings called push.default.
 
@@ -447,7 +442,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          ```
 
 
-      7. Diverged History
+   7. Diverged History
 
          The big challenge with pulling and pushing comes when we have a diverged history, meaning someone else contributed some code to a remote that conflicts with code you are working on. In this case, git won't allow you to git push your code if it conflicts with something that someone else wrote. To resolve this, you must base your work off the most recent version of the remote branch. One solution is to do a ```git rebase``` before pushing. You can also do the same thing with a ```git merge``` command instead of ```git rebase```. Or an even faster way is via ```git pull --rebase```. 
 
@@ -483,7 +478,7 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          ```
 
 
-      8. Locked Main
+   8. Locked Main
 
          If you work on a large team, you generally can't push directly onto the main branch. The solution is to create your own branch locally, make your changes, then push that change to the remote using a pull request. 
 
@@ -497,16 +492,32 @@ My Solutions and Notes for the Learn Git Branching Tutorial
          ```
       
       
-      #### To Origin and Beyond -- Advanced Git Remotes!
+#### To Origin and Beyond -- Advanced Git Remotes!
       
-      1. Push Main!
-      2. Merging with Remotes
-      3. Remote Tracking
-      4. Git Push Arguments
-      5. Git Push Arguments - Expaned
-      6. Fetch Arguments
-      7. Source of Nothing
-      8. Pull Arguments
+   1. Push Main!
+        This level is pretty hefty -- here is the general outline to solve:
+
+There are three feature branches -- side1 side2 and side3
+
+We want to push each one of these features, in order, to the remote
+
+The remote has since been updated, so we will need to incorporate that work as well
+    
+   Solution:
+   
+   ```console
+
+
+   ```
+
+
+   2. Merging with Remotes
+   3. Remote Tracking
+   4. Git Push Arguments
+   5. Git Push Arguments - Expaned
+   6. Fetch Arguments
+   7. Source of Nothing
+   8. Pull Arguments
 
          
     
