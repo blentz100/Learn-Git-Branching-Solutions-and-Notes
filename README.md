@@ -212,17 +212,17 @@ My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle.
 
        Solution using cherry-pick
 
-          ```console
-          git checkout main
-          git cherry-pick bugFix
-          ```
+       ```console
+       git checkout main
+       git cherry-pick bugFix
+       ```
 
        Solution using git rebase -i 
          
-          ```console
-          git rebase -i c1 // delete commits c2 and c3
-          git branch -f c4 main'
-          ```
+       ```console
+       git rebase -i c1 // delete commits c2 and c3
+       git branch -f c4 main'
+       ```
  
     
    2. Juggling Commits
@@ -233,28 +233,28 @@ My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle.
           
        Here is the problem: 
 
-         We will overcome this difficulty by doing the following:
+       We will overcome this difficulty by doing the following:
 
-         We will re-order the commits so the one we want to change is on top with git rebase -i
+       We will re-order the commits so the one we want to change is on top with git rebase -i
          
-         We will git commit --amend to make the slight modification
+       We will git commit --amend to make the slight modification
          
-         Then we will re-order the commits back to how they were previously with git rebase -i
+       Then we will re-order the commits back to how they were previously with git rebase -i
          
-         Finally, we will move main to this updated part of the tree to finish the level (via the method of your choosing)
+       Finally, we will move main to this updated part of the tree to finish the level (via the method of your choosing)
          
-         There are many ways to accomplish this overall goal (I see you eye-ing cherry-pick), and we will see more of them later, but for now let's focus on this technique. Lastly, pay attention to the goal state here -- since we move the commits twice, they both get an apostrophe appended. One more apostrophe is added for the commit we amend, which gives us the final form of the tree
+       There are many ways to accomplish this overall goal (I see you eye-ing cherry-pick), and we will see more of them later, but for now let's focus on this technique. Lastly, pay attention to the goal state here -- since we move the commits twice, they both get an apostrophe appended. One more apostrophe is added for the commit we amend, which gives us the final form of the tree
 
    
-          ```console
-          git rebase -i C1 
-          git checkout newImage 
-          git commit --amend 
-          git checkout caption
-          git rebase -i C1 
-          git branch -f main C3 
-          git checkout main
-          ```
+       ```console
+       git rebase -i C1 
+       git checkout newImage 
+       git commit --amend 
+       git checkout caption
+       git rebase -i C1 
+       git branch -f main C3 
+       git checkout main
+       ```
           
    3. Juggling Commits #2
 
@@ -264,11 +264,11 @@ My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle.
             
          The problem: So in this level, let's accomplish the same objective of amending C2 once but avoid using rebase -i. I'll leave it up to you to figure it out! :D
             
-            ```console
-            git checkout main
-            git cherry-pick c2
-            git cherry-pick c3
-            ```
+         ```console
+         git checkout main
+         git cherry-pick c2
+         git cherry-pick c3
+         ```
             
          My solution used 3 commands, their solution used 4 commands. That's a little odd that it worked. It didn't require me to use the git ammend command which I thought I might have to use. 
 
@@ -277,33 +277,31 @@ My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle.
     
    4.  Git Tags
 
-            Branches are useful but they are mutable and often changing. Tags are a way to (almost) permanently mark certain commits as milestones.
+          Branches are useful but they are mutable and often changing. Tags are a way to (almost) permanently mark certain commits as milestones.
          
-            Solution:
+          Solution:
          
-            ``` console
-            git tag v0 c1
-            git tag v1 c2
-            git checkout v1
-            ```
+          ``` console
+          git tag v0 c1
+          git tag v1 c2
+          git checkout v1
+          ```
 
    5.  Git Describe
     
-            ```git describe``` will tell you where you are relative to the closest anchor.
+          ```git describe``` will tell you where you are relative to the closest anchor.
             
-            Solution:
+          Solution:
 
-            ```console
-            git describe
-            git describe HEAD
-            git describe main
-            git describe c5
-            git describe c3
-            git describe side
-            git commit
-            ```
-     
-    
+          ```console
+          git describe
+          git describe HEAD
+          git describe main
+          git describe c5
+          git describe c3
+          git describe side
+          git commit
+          ```
     
 #### Advanced Topics - For the Truly Brave!
    1. Rebasing over 9000 times
@@ -495,20 +493,23 @@ My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle.
 #### To Origin and Beyond -- Advanced Git Remotes!
       
    1. Push Main!
+
         This level is pretty hefty -- here is the general outline to solve:
 
-There are three feature branches -- side1 side2 and side3
+        There are three feature branches -- side1 side2 and side3
 
-We want to push each one of these features, in order, to the remote
+        We want to push each one of these features, in order, to the remote
 
-The remote has since been updated, so we will need to incorporate that work as well
+        The remote has since been updated, so we will need to incorporate that work as well
     
-   Solution:
-   
-   ```console
+       Solution:
 
-
-   ```
+       ```console
+       git checkout main
+       git pull --rebase
+       git cherry-pick c2 c3 c4 c5 c6 c7
+       git push
+       ```
 
 
    2. Merging with Remotes
