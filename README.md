@@ -536,6 +536,35 @@ My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle.
       </details>
 
    4. Remote Tracking
+       Your local main branch doesn't always have to be linked to the remote main branch, although this is the common default setup.
+       
+       If you want to do something different you create a new branch and point it to whatever remote you want:
+
+       ```git checkout -b totallyNotMain o/main``` Creates a new branch named totallyNotMain and sets it to track o/main.
+       
+       Another method is to just update the remote tracking on an existing branch with this command:
+       
+       ```git branch -u o/main foo```
+       
+       and if foo is the currently check out branch, we don't even need to specify it:
+
+        ```git branch -u o/main```
+        
+        Ok! For this level let's push work onto the main branch on remote while not checked out on main locally. I'll let you figure out the rest since this is the         advanced course :P
+        
+         <details><summary><b>Solution</b></summary>
+      <p> 
+
+      ```console
+      git checkout -b side o/main
+      git commit
+      git pull --rebase
+      git push
+      ```
+
+      </p>
+      </details>
+
    5. Git Push Arguments
    6. Git Push Arguments - Expanded
    7. Fetch Arguments
