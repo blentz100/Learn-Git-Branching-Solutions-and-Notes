@@ -1,5 +1,5 @@
 # Learn-Git-Branching-Solutions-and-Notes
-My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle. 
+My Solutions and Notes for the [Learn Git Branching Tutorial](https://learngitbranching.js.org/) by Peter Cottle. 
 
 
 
