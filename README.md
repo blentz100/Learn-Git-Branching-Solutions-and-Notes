@@ -502,7 +502,8 @@ My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle.
 
         The remote has since been updated, so we will need to incorporate that work as well
     
-       Solution:
+       <details><summary><b>Solution</b></summary>
+       <p> 
 
        ```console
        git checkout main
@@ -510,15 +511,36 @@ My Solutions and Notes for the Learn Git Branching Tutorial by Peter Cottle.
        git cherry-pick c2 c3 c4 c5 c6 c7
        git push
        ```
+       
+      </p>
+      </details>
 
 
    2. Merging with Remotes
-   3. Remote Tracking
-   4. Git Push Arguments
-   5. Git Push Arguments - Expaned
-   6. Fetch Arguments
-   7. Source of Nothing
-   8. Pull Arguments
+
+        Solve the same thing as the last level, but this time use merging instead of rebasing. 
+      
+      <details><summary><b>Solution</b></summary>
+      <p> 
+
+      ```console
+      git checkout main
+      git pull
+      git merge side1
+      git merge side2
+      git merge side3
+      git push
+      ```
+
+      </p>
+      </details>
+
+   4. Remote Tracking
+   5. Git Push Arguments
+   6. Git Push Arguments - Expanded
+   7. Fetch Arguments
+   8. Source of Nothing
+   9. Pull Arguments
 
          
     
