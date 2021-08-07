@@ -566,10 +566,76 @@ My Solutions and Notes for the [Learn Git Branching Tutorial](https://learngitbr
       </details>
 
    5. Git Push Arguments
-   6. Git Push Arguments - Expanded
-   7. Fetch Arguments
-   8. Source of Nothing
-   9. Pull Arguments
+
+      git push can take arguments in the form of: ```git push <remote> <place>```
+      
+      An example: ```git push origin main```, we are telling git what branch to look at to determine where the commits will come from, and where they are going to. Since we specified main as the <place> parameter, git totally ignores where we are checked out when we run this command. 
+    
+      Ok, for this level let's update both foo and main on the remote. The twist is that git checkout is disabled for this level!
+
+      Note: The remote branches are labeled with o/ prefixes because the full origin/ label does not fit in our UI. Don't worry about this... simply use origin as the name of the remote like normal.
+
+      <details><summary><b>Solution</b></summary>
+      <p> 
+
+      ```console
+      git push origin foo
+      git push origin main
+      ```
+
+      </p>
+      </details>
+      
+   7. Git Push Arguments - Expanded
+    
+      If you wanted to push some commits from one branch to another branch and they don't have the same name, you can use ```git push origin <source>:<destination>```. This is known as colon refspec, and refspec is just another word for a location that git can figure out. You can even specify the name of a new branch on the remote and git will create it for you. 
+    
+      <details><summary><b>Solution</b></summary>
+      <p> 
+
+      ```console
+     
+      ```
+
+      </p>
+      </details>
+    
+      
+   8. Fetch Arguments
+    
+      <details><summary><b>Solution</b></summary>
+      <p> 
+
+      ```console
+     
+      ```
+
+      </p>
+      </details>
+    
+   9. Source of Nothing
+    
+      <details><summary><b>Solution</b></summary>
+      <p> 
+
+      ```console
+     
+      ```
+
+      </p>
+      </details>
+    
+   10. Pull Arguments
+    
+       <details><summary><b>Solution</b></summary>
+       <p> 
+
+       ```console
+     
+       ```
+
+       </p>
+       </details>
 
          
     
