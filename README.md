@@ -1,6 +1,8 @@
 # Learn-Git-Branching-Solutions-and-Notes
 My Solutions and Notes for the [Learn Git Branching Tutorial](https://learngitbranching.js.org/) by Peter Cottle. 
 
+Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBranching)
+
 
 
 #### Introduction Sequence - A nicely paced introduction to the majority of git commands
