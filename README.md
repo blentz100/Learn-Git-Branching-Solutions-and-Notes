@@ -576,7 +576,8 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
       Ok, for this level let's update both foo and main on the remote. The twist is that git checkout is disabled for this level!
 
       Note: The remote branches are labeled with o/ prefixes because the full origin/ label does not fit in our UI. Don't worry about this... simply use origin as the name of the remote like normal.
-
+    
+     
       <details><summary><b>Solution</b></summary>
       <p> 
 
@@ -591,6 +592,11 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
    7. Git Push Arguments - Expanded
     
       If you wanted to push some commits from one branch to another branch and they don't have the same name, you can use ```git push origin <source>:<destination>```. This is known as colon refspec, and refspec is just another word for a location that git can figure out. You can even specify the name of a new branch on the remote and git will create it for you. 
+    
+       We can do something like ```git push origin foo^:main```. Or if the destination we want to push to doesn't yet exist, we can write: ```git push origin main:newBranch```
+    
+      For this level, try to get to the end goal state shown in the visualization, and remember the format of: <source>:<destination>
+
     
       <details><summary><b>Solution</b></summary>
       <p> 
