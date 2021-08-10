@@ -537,7 +537,7 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
       </p>
       </details>
 
-   4. Remote Tracking
+   3. Remote Tracking
        Your local main branch doesn't always have to be linked to the remote main branch, although this is the common default setup.
        
        If you want to do something different you create a new branch and point it to whatever remote you want:
@@ -567,7 +567,7 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
       </p>
       </details>
 
-   5. Git Push Arguments
+   4. Git Push Arguments
 
       git push can take arguments in the form of: ```git push <remote> <place>```
       
@@ -589,7 +589,7 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
       </p>
       </details>
       
-   7. Git Push Arguments - Expanded
+   5. Git Push Arguments - Expanded
     
       If you wanted to push some commits from one branch to another branch and they don't have the same name, you can use ```git push origin <source>:<destination>```. This is known as colon refspec, and refspec is just another word for a location that git can figure out. You can even specify the name of a new branch on the remote and git will create it for you. 
     
@@ -610,7 +610,33 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
       </details>
     
       
-   8. Fetch Arguments
+   6. Fetch Arguments
+   
+      Fetch arguments can also use the same constructs that are available for the push arguments. We can use colon refspec, the <place> parameter and more.
+
+      It you call ```git fetch``` with no arguments, it will download all new commits from the remote onto all the remote branches. 
+    
+      Ok, enough talking! To finish this level, fetch just the specified commits in the goal visualization. Get fancy with those commands!
+
+      You will have to specify the source and destination for both fetch commands. Pay attention to the goal visualization since the IDs may be switched around!
+    
+      <details><summary><b>Solution</b></summary>
+      <p> 
+
+      ```console
+      git fetch origin foo:main
+      git fetch origin main~2:foo
+      git fetch origin main~1:foo
+      git checkout foo
+      git merge main
+      ```
+          
+      This solution is 5 steps, they say to try to do it in 4. Maybe combine the last two steps?
+
+      </p>
+      </details>
+    
+   7. Source of Nothing
     
       <details><summary><b>Solution</b></summary>
       <p> 
@@ -622,19 +648,7 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
       </p>
       </details>
     
-   9. Source of Nothing
-    
-      <details><summary><b>Solution</b></summary>
-      <p> 
-
-      ```console
-     
-      ```
-
-      </p>
-      </details>
-    
-   10. Pull Arguments
+   8. Pull Arguments
     
        <details><summary><b>Solution</b></summary>
        <p> 
