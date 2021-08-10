@@ -593,16 +593,17 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
     
       If you wanted to push some commits from one branch to another branch and they don't have the same name, you can use ```git push origin <source>:<destination>```. This is known as colon refspec, and refspec is just another word for a location that git can figure out. You can even specify the name of a new branch on the remote and git will create it for you. 
     
-       We can do something like ```git push origin foo^:main```. Or if the destination we want to push to doesn't yet exist, we can write: ```git push origin main:newBranch```
+       We can use relative references like this:  ```git push origin foo^:main```. Or if the destination we want to push to doesn't yet exist, we can write: ```git push origin main:newBranch```
     
-      For this level, try to get to the end goal state shown in the visualization, and remember the format of: <source>:<destination>
+      For this level, try to get to the end goal state shown in the visualization, and remember the format of: ```<source>:<destination>```
 
     
       <details><summary><b>Solution</b></summary>
       <p> 
 
       ```console
-     
+      git push origin foo:main
+      git push origin main^:foo
       ```
 
       </p>
