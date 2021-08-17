@@ -638,13 +638,15 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
     
    7. Source of Nothing
     
-      <details><summary><b>Solution</b></summary>
-      <p> 
-          
-      Git allows you to specify nothing for the <source> parameter when pushing or fetching. Push nothing to a remote branch will delete it. 
+      Git allows you to specify nothing for the <source> parameter when pushing or fetching. Pushing nothing to a remote branch will delete it. 
       Fetching nothing will create a new branch locally though. 
           
       This is a quick level -- just delete one remote branch and create a new branch with git fetch to finish!
+    
+      <details><summary><b>Solution</b></summary>
+      <p> 
+          
+  
 
       ```console
       git fetch origin :bar 
@@ -656,11 +658,25 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
     
    8. Pull Arguments
     
+       ```git pull``` is really just shorthand for ```git fetch``` followed by merging whatever you just fetched. So git pull arguments are pretty much the same as git fetch arguments. 
+
+       ```git pull origin foo``` is the equivalent to:
+       ```git fetch origin foot; git merge o/foo```
+    
+       and
+    
+       ```git pull origin bar~1;bugFix``` is equal to:
+    
+       ```git fetch origin bar~1:bugFix; git merge bugFix```
+    
+       Ok to finish up, attain the state of the goal visualization. You'll need to download some commits, make some new branches, and merge those branches into            other branches, but it shouldn't take many commands :P
+    
        <details><summary><b>Solution</b></summary>
        <p> 
 
        ```console
-     
+       git pull origin bar:foo
+       git pull origin main:side 
        ```
 
        </p>
