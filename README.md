@@ -640,9 +640,15 @@ Project Repository: [Learn Git Branching](https://github.com/pcottle/learnGitBra
     
       <details><summary><b>Solution</b></summary>
       <p> 
+          
+      Git allows you to specify nothing for the <source> parameter when pushing or fetching. Push nothing to a remote branch will delete it. 
+      Fetching nothing will create a new branch locally though. 
+          
+      This is a quick level -- just delete one remote branch and create a new branch with git fetch to finish!
 
       ```console
-     
+      git fetch origin :bar 
+      git push origin :foo 
       ```
 
       </p>
